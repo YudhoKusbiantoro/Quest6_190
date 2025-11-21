@@ -57,4 +57,61 @@ fun FormIsian(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = colorResource(id = R.color.teal_700))
             )}
+    ) { isiRuang ->
+        Column(
+            modifier = Modifier.padding(paddingValues = isiRuang),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            OutlinedTextField(
+                value = txtNama,
+                singleLine = true,
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .width(250.dp),
+                label = { Text(text = "Nama Lengkap") },
+                onValueChange = {
+                    txtNama = it
+                }
+            )
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp), thickness = Thickness, color = Color.Blue
+            )
+            Row {
+                pilihanJk.forEach { item ->
+                    Row(modifier = Modifier.selectable(
+                        selected = txtGender == item,
+                        onClick = {
+                            txtGender = item
+                        }
+                    ),
+                        verticalAlignment = Alignment.CenterVertically) {
+                            RadioButton(
+                                selected = txtGender == item,
+                                onClick = {
+                                    txtGender = item
+                                }
+                            )
+                            Text(text = item)
+                    }
+                }
+            }
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp),
+                color = Color.Blue
+            )
+            OutlinedTextField(
+                value = txtAlamat,
+                singleLine = true,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.width(250.dp),
+                label = { Text(text = " Alamat Lengkap") },
+                onValueChange = {
+                    txtAlamat = it
+                },
+            )
 }
