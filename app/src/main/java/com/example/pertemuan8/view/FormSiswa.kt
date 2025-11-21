@@ -39,4 +39,8 @@ import androidx.compose.runtime.setValue
 @Composable
 fun FormIsian(
 
+    pilihanJk:List<String>,
+    OnSubmitButtonClicked: (MutableList<String>) -> Unit,
+    modifier: Modifier = Modifier
+){
 }
