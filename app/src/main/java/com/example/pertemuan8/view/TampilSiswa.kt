@@ -31,5 +31,13 @@ import com.example.pertemuan8.model.Siswa
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilData(
+    statusUISiswa : Siswa,
+    onBackButtonCliked:()-> Unit
+){
+    val items = listOf(
+        Pair(stringResource(id = R.string.nama_lengkap), statusUISiswa.nama),
+        Pair(stringResource(id = R.string.jenis_kelamin), statusUISiswa.gender),
+        Pair(stringResource(id = R.string.alamat), statusUISiswa.alamat)
+    )
 }
 
