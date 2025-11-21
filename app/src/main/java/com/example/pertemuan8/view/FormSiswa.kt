@@ -114,4 +114,16 @@ fun FormIsian(
                     txtAlamat = it
                 },
             )
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+                enabled = txtAlamat.isNotEmpty(),
+                onClick = {OnSubmitButtonClicked(listData)}
+            ) {
+                Text(stringResource(id = R.string.submit))
+            }
+        }
+    }
 }
