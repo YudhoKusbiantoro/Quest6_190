@@ -39,5 +39,34 @@ fun TampilData(
         Pair(stringResource(id = R.string.jenis_kelamin), statusUISiswa.gender),
         Pair(stringResource(id = R.string.alamat), statusUISiswa.alamat)
     )
+    Scaffold (modifier = Modifier,
+        topBar = {
+            TopAppBar(
+                title = {Text(text = stringResource(id=R.string.tampil), color = Color.White)},
+                colors = TopAppBarDefaults.mediumTopAppBarColors(colorResource(id=R.color.teal_700))
+            )
+        }){ isiRuang->
+        Column (modifier = Modifier.padding(isiRuang),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
+                verticalArrangement = Arrangement.spacedBy (10.dp)) {
+                items.forEach { item ->
+                    Column {
+                        Text(text = item.first.uppercase(), fontSize = 16.sp)
+                        Text(text = item.second, fontFamily = FontFamily.SansSerif, fontSize = 22.sp)
+                    }
+                    Divider(thickness = 1.dp, color = Color.Blue)
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = onBackButtonCliked) {
+                    Text(text = stringResource(id = R.string.back))
+                }
+            }
+        }
+
+    }
 }
 
